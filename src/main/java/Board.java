@@ -12,6 +12,7 @@ public class Board {
     private Navy navy;
     private String name;
 
+    private boolean goodAttack;
 
     private static List<Navy> navies = new ArrayList<>();
 
@@ -45,6 +46,5 @@ public class Board {
     public String getName() {
         return name;
     }
+
 }
-
-

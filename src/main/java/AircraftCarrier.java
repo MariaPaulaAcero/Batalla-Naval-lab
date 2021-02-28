@@ -7,12 +7,14 @@ public class AircraftCarrier {
     private Marine captain;
 
     private List<Marine> marines;
-    private List<Aircraft> aircrafts=new ArrayList<>();
+   // private List<Aircraft> aircrafts=new ArrayList<>();
     private Position location;
 
 
-    public AircraftCarrier(int numberId, int capacity) {
+    public AircraftCarrier(int numberId, int capacity,Position location) {
         this.numberId = numberId;
         this.capacity = capacity;
+        this.location = location;
+
     }
 }

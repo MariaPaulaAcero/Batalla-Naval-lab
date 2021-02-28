@@ -4,9 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class TestB {
 
@@ -40,23 +37,70 @@ public class TestB {
     @Test
     @DisplayName("GIVEN WHEN THEN")
 
-    public void availabilityAircraft (){
+    public void availabilityAircraft() {
 
         Navy navy1 = new Navy("T");
-        AircraftCarrier a1 = new AircraftCarrier(900,navy1.capacity);
-        Aircraft aa1 = new Aircraft("JB900",false);
+        AircraftCarrier a1 = new AircraftCarrier(900, navy1.capacity,new Position(5,6));
+        Aircraft aa1 = new Aircraft("JB900", false);
 
         navy1.aircraftCarriers.add(a1);
         navy1.aircrafts.add(aa1);
 
-        assertEquals(navy1.capacity-1,navy1.availabilityAircraft());
-
+        assertEquals(navy1.capacity - 1, navy1.availabilityAircraft());
 
 
     }
 
 
+    @Test
+    @DisplayName("GIVEN WHEN THEN ")
+
+    public void goodAttack (){
+
+        Navy navy1 = new Navy("T");
+        Position po = new Position(12,20);
+        Ship ship = new Ship(1,po);
+        AircraftCarrier air = new AircraftCarrier(1,5,po);
+
+        navy1.getShipss().add(ship);
+        navy1.getAircraftCarriers().add(air);
+
+        assertTrue(navy1.goodAttack(20,20));
+        assertFalse(navy1.goodAttack(12,20));
+    }
+
+
+    @Test
+    @DisplayName("GIVEN WHEN THEN ")
+
+    public void willBeDestroyed (){
+
+        Navy navy1 = new Navy("T");
+        Position po = new Position(12,20);
+        Ship ship = new Ship(1,po);
+        AircraftCarrier air = new AircraftCarrier(1,5,po);
+        ArrayList<Object> objects = new ArrayList<>();
+
+        navy1.getShipss().add(ship);
+        navy1.getAircraftCarriers().add(air);
+        objects.add(ship);
+        objects.add(air);
+
+
+        assertEquals(objects,navy1.willBeDistroyed(12,20));
+
+    }
+
+    @Test
+    @DisplayName("GIVEN WHEN THEN ")
+
+    public void muevase (){
+
+      
+
+    }
 }
+
 
 
 
