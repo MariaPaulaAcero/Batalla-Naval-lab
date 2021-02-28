@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestB" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-02-28T03:32:14" hostname="DESKTOP-HNG3HQ1" time="0.035">
+<testsuite name="TestB" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-02-28T19:06:35" hostname="DESKTOP-HNG3HQ1" time="0.069">
   <properties/>
-  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.035"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.042"/>
+  <testcase name="GIVEN a list with enemies aircraftÂ´s license plates on air WHEN compare sizes THEN must be the same" classname="TestB" time="0.002"/>
+  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.004"/>
+  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.003"/>
+  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.007"/>
+  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.002"/>
+  <testcase name="GIVEN WHEN THEN" classname="TestB" time="0.002"/>
+  <system-out><![CDATA[1
+0
+1
+1
+0
+1
+1
+0
+1
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

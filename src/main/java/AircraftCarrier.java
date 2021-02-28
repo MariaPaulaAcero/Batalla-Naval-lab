@@ -6,8 +6,14 @@ public class AircraftCarrier {
     public int capacity;
     private Marine captain;
 
+
     private List<Marine> marines;
-   // private List<Aircraft> aircrafts=new ArrayList<>();
+    private List<Aircraft> aircrafts = new ArrayList<>();
+
+/*
+    private List<Aircraft> enemiesAircrafts = new ArrayList<>();
+
+ */
     private Position location;
 
 
@@ -17,4 +23,11 @@ public class AircraftCarrier {
         this.location = location;
 
     }
+   /* public List<Aircraft> getenemiesAircrafts(){
+        return enemiesAircrafts;
+    }
+*/
+
+
+
 }

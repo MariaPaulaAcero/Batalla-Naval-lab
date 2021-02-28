@@ -1,14 +1,14 @@
+Marine.java
+ Marine
 Position.java
  Position
 AircraftCarrier.java
  AircraftCarrier
 Ship.java
  Ship
-Marine.java
- Marine
-Aircraft.java
- Aircraft
 Navy.java
  Navy
+Aircraft.java
+ Aircraft
 Board.java
  Board

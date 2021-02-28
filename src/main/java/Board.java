@@ -3,8 +3,11 @@ import java.util.List;
 
 public class Board {
 
+    public final int maxPositionLatitud = 100;
+    public final int minPositionLatitud = -100;
+    public final int maxPositionLenght = 100;
+    public final int minPositionLenght = -100;
 
-    public final Position boardLocation= null;
     private AircraftCarrier aircraftCarrier;
     private Aircraft aircraft;
     private Ship ship;
@@ -12,7 +15,23 @@ public class Board {
     private Navy navy;
     private String name;
 
-    private boolean goodAttack;
+    public int getMaxPositionLatitud() {
+        return maxPositionLatitud;
+    }
+
+    public int getMinPositionLatitud() {
+        return minPositionLatitud;
+    }
+
+    public int getMaxPositionLenght() {
+        return maxPositionLenght;
+    }
+
+    public int getMinPositionLenght() {
+        return minPositionLenght;
+    }
+
+
 
     private static List<Navy> navies = new ArrayList<>();
 

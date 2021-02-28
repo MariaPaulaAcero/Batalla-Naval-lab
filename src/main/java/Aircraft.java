@@ -19,22 +19,15 @@ public class Aircraft {
 
     }
 
+
     public String getLicencePlate() {
         return licencePlate;
     }
 
-    public void setLicencePlate(String licencePlate) {
-        this.licencePlate = licencePlate;
+    public boolean getinAir() {
+        return inAir;
     }
 
 
-   /* public static <Aircraft> inAirs getLicencePlate() {
-        return null;
-    }
-
-    private static class inAirs {
-    }
-
-    */
 }
 

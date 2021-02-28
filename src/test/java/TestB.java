@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NavigableMap;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,6 +52,26 @@ public class TestB {
 
 
     }
+    @Test
+    @DisplayName("GIVEN a list with enemies aircraft´s license plates on air WHEN compare sizes THEN must be the same")
+
+    public void enemiesLicencePlateOnAir (){
+
+        Position po = new Position(12,20);
+        AircraftCarrier a1 = new AircraftCarrier(600, 100,po);
+        Aircraft aa1 = new Aircraft("JB600", false);
+        Aircraft aa2 = new Aircraft("JK600", true);
+        Navy navy1 = new Navy("M");
+
+        navy1.getEnemiesAircrafts().add(aa1);
+        navy1.getEnemiesAircrafts().add(aa2);
+        navy1.getAircraftCarriers().add(a1);
+
+
+        int result = navy1.enAire().size();
+
+        assertEquals(1, result);
+    }
 
 
     @Test
@@ -91,14 +113,48 @@ public class TestB {
 
     }
 
+
     @Test
-    @DisplayName("GIVEN WHEN THEN ")
+    @DisplayName("GIVEN WHEN THEN")
+
+    public void confuseEnemiesAircraftswithOwnAircrafts (){
+
+        Position po = new Position(12,20);
+        AircraftCarrier a1 = new AircraftCarrier(700, 100,po);
+        Aircraft aa1 = new Aircraft("JB700", true);
+        Aircraft aa2 = new Aircraft("JB700", true);
+        Navy navy1 = new Navy("M");
+
+        navy1.getEnemiesAircrafts().add(aa1);
+        navy1.getOwnAircrafts().add(aa2);
+        navy1.getAircraftCarriers().add(a1);
+
+        boolean confuse = navy1.problemaEnAire();
+
+        assertTrue(confuse, "There was a confuse between enemies License plates and own");
+    }
+    @Test
+    @DisplayName("GIVEN WHEN THEN")
 
     public void muevase (){
+        Position po = new Position(12,20);
+        Navy navy1 = new Navy("T");
+        Ship ship = new Ship(1,po);
+        List<Navy> navies = new ArrayList<>();
 
-      
+
+        Board b = new Board(navies);
+        navies.add(navy1);
+        navy1.getShipss().add(ship);
+        navy1.muevase(15,30);
+
+
+        assertEquals(15,navy1.getShipss().get(0).getLocation().getLatitude());
+        assertEquals(30,navy1.getShipss().get(0).getLocation().getLength());
+
 
     }
+
 }
 
 

@@ -21,6 +21,12 @@ public class Navy {
     private int currentCapacity=1;
     private int availability;
     public List<Aircraft> aircrafts = new ArrayList<>();
+
+    public List<Aircraft> getEnemiesAircrafts() {
+        return enemiesAircrafts;
+    }
+
+    private List<Aircraft> enemiesAircrafts = new ArrayList<>();
     private List<Ship> shipss = new ArrayList<>();
     public List<AircraftCarrier> aircraftCarriers = new ArrayList<>();
 
@@ -50,9 +56,7 @@ public class Navy {
         Navy n1= (Navy) m; //castear
         return name == board.getName();
 
-
     }
-
 
 
     public Navy(String name) {
@@ -69,6 +73,7 @@ public class Navy {
      *
      * @returns: numero de flotas con el mismo nombre
      */
+
     public int alias() {
         return board.countNavies(name)-1;
 
@@ -88,6 +93,44 @@ public class Navy {
           availability= capacity-currentCapacity;
       }
         return availability;
+    }
+
+    /**
+     * Consulta la placa de los aviones enemigos que están en el aire
+     *
+     * @returns: la placa de los aviones enemigos que están en el aire
+     */
+    public List<Aircraft> getOwnAircrafts() {
+        return aircrafts;
+    }
+    public ArrayList<String> enAire() {
+        String enemyLicencePlate;
+        ArrayList<String> enemiesLicencePlates = new ArrayList<>();
+        for(Aircraft aircraft : enemiesAircrafts){
+            if(aircraft.getinAir()){
+                enemyLicencePlate = aircraft.getLicencePlate();
+                enemiesLicencePlates.add(enemyLicencePlate);
+            }
+        }
+        return enemiesLicencePlates;
+    }
+
+    /**
+     * Consulta si puede confundir sus aviones con aviones enemigos considerando
+     * las placas
+     *
+     * @returns: si hay problema en aire
+     */
+    public boolean problemaEnAire(){
+        boolean result = false;
+        for(Aircraft aircraft : aircrafts){
+            for(Aircraft enemyAircraft : enemiesAircrafts){
+                if(aircraft.getLicencePlate().equals(enemyAircraft.getLicencePlate())){
+                    result = true;
+                }
+            }
+        }
+        return result;
     }
 
     /**
@@ -124,8 +167,30 @@ public class Navy {
         }
         return objects;
     }
-    public void muevase(int deltaLongitud,int deltaLatitud){
 
+
+    /**
+     * Mueve todos los barcos la distancia definida
+     *
+     * Parameters:
+     *   deltaLongitud - avance en longitud
+     *   deltaLatitud - avance en latitud
+     */
+    public void muevase(int deltaLatitude ,int deltaLenght){
+
+        if(deltaLatitude< board.getMaxPositionLatitud() && deltaLatitude> board.getMinPositionLatitud()){
+            if(deltaLenght< board.getMaxPositionLenght() && deltaLenght> board.getMinPositionLenght()){
+                for(int i=0;i<shipss.size();i++){
+                    getShipss().get(i).getLocation().setLatitude(deltaLatitude);
+                    getShipss().get(i).getLocation().setLength(deltaLenght);
+                }
+
+
+
+            }
+
+
+        }
 
     }
 
